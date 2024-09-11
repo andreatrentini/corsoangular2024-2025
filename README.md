@@ -42,3 +42,38 @@ Per seguire comandi angular su un determinato progetto, è necessario entrare ne
   - style.css: foglio stile principale dell'applicazione
 - angular.json: definizione globale dell'applicazione. Salvo casi speciali non va modificato.
 - package.json (package-lock.json): contiene l'elenco delle librerie necessarie al funzionamento di angular
+- tsconfig...: contengono parametri di configurazione del linguaggio Typescript, raramente vengono modificati.
+
+## Linguaggi in un'applicazione angular
+HTML, CSS e Typescript
+
+Typescript è un superset del linguaggio javascript
+
+## Eseguire un'applicazione angular
+```ng serve```
+
+## Elementi di un'applicazione angular
+1. Componenti: un componente è un parte della pagina web che contiene l'applicazione: intestazione, menu, una tabella, un input, una form  
+   Un componente è definito con 3 liunguaggi di programmazione:  
+   - HTML: definisce la vista
+   - CSS: definisce lo stile
+   - Typescript: definisce la business logic. Il linguaggio è case sensitive.
+   - spec.ts: contiene i test automatici per il componente
+
+
+## Componenti
+Sono definiti da una classe: ```export class AppComponent...``` e da un decoratore: ```@Component({```.  
+- selector: nome del tag per inserire il componente nell'applicazione
+- standalone: true a partire dalla versione 17 di angular, ogni componente contiene tutte le definizioni (import) necessari al suo funzionamento
+- imports: array di classi, moduli, componenti, altri oggetti da importare per il funzionamento del componente
+- templateUrl: percorso e nome del file che contiene il codice HTML del componente
+- styleUrl: percorso e nome del file CSS
+
+Per creare un nuovo componente il comando da usare è: ```ng generate component nome-del-componente``` (attenzione ai trattini!)  
+
+## Lavorare con i componenti
+
+### String interpolation
+Mi consente di visualizzare nella pagina il contenuto di una variabile (attributo) definita nel file typescript.  
+Si inserisce con la doppia parentesi graffa ```{{ nome-della-variabile }}```.  
+
