@@ -1,7 +1,9 @@
-<p>{{ saluto }}</p>
-<p>{{ saluto }}</p>
-<p>{{ saluto }}</p>
-<p>{{ saluto }}</p>
-<p>{{ saluto }}</p>
-<p>{{ saluto }}</p>
-<p>{{ saluto }}</p>
+<h1>{{ saluto }}</h1>
+<h2>{{ valore }}</h2>
+<p><button (click)="aggiungi()">Aumenta</button></p>
+<p><button (click)="casuale()">Casuale</button></p>
+<p><button (click)="cambiaImmagine()">Cambia immagine</button></p>
+<p><button (click)="mostraImmagine()">Mostra immagine</button><button (click)="nascondiImmagine()">Nascondi immagine</button></p>
+<p>
+    <img [src]="percorsoAlbero" [style.visibility]="visibilitaImmagine">
+</p>
