@@ -1,0 +1,18 @@
+<h2>Direttive Strutturali</h2>
+<p>
+    <input type="number" [(ngModel)]="valore"><button (click)="azzera()">Azzera</button>
+</p>
+@if(valore > 5) {
+    <h2>Il valore {{ valore }} è maggiore di 5.</h2>
+}
+@else {
+    <p>Il valore {{ valore }} è minore o uguale a 5.</p>
+}
+<p>
+    <input type="text" [(ngModel)]="nuovoColore">
+</p>
+<ul>
+    @for(colore of colori; track colore) {
+        <li>{{colore}}</li>
+    }
+</ul>
