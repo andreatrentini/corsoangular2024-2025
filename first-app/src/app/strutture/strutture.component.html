@@ -9,7 +9,7 @@
     <p>Il valore {{ valore }} è minore o uguale a 5.</p>
 }
 <p>
-    <input type="text" [(ngModel)]="nuovoColore">
+    <input type="text" [(ngModel)]="nuovoColore"><button (click)="aggiungiColore()">Aggiungi</button>
 </p>
 <ul>
     @for(colore of colori; track colore) {

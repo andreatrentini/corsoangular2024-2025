@@ -1,0 +1,24 @@
+<h2>Studenti</h2>
+<div>
+    <!-- con #nome assegno un nome (bookmark) all'elemento HTML al quale mi serve successivamente fare riferimento. -->
+    <input type="number" placeholder="id" #id>
+    <input type="text" placeholder="nome" #nome>
+    <input type="text" placeholder="cognome" #cognome>
+    <input type="text" placeholder="classe" #classe>
+    <!-- Per passare al metodo aggiungi gli oggetti input (in typescript è necessario leggerne il valore con la proprietà value)
+         aggiungo come parametro il bookmark definito togliendo il #.
+         I parametri saranno di tipo HTMLInputElement. -->
+    <button (click)="aggiungi(id, nome, cognome, classe)">Aggiungi</button>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Classe</th>
+        </tr>
+        <!-- Aggiungere gli studenti presenti nell'array studenti -->
+
+    </table>
+</div>

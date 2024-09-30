@@ -15,8 +15,13 @@ export class StruttureComponent {
 
   valore: number = 6;
   colori: string[] = ['Rosso', 'Verde', 'Blu', 'Giallo'];
+  nuovoColore: string = '';
 
   azzera(): void {
     this.valore = 0;
+  }
+
+  aggiungiColore(): void {
+    this.colori.push(this.nuovoColore);
   }
 }
