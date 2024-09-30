@@ -77,3 +77,4 @@ Per creare un nuovo componente il comando da usare è: ```ng generate component 
 Mi consente di visualizzare nella pagina il contenuto di una variabile (attributo) definita nel file typescript.  
 Si inserisce con la doppia parentesi graffa ```{{ nome-della-variabile }}```.  
 
+Questa modifica è stata fatta da github
