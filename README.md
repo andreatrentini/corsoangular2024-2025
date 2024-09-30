@@ -78,3 +78,4 @@ Mi consente di visualizzare nella pagina il contenuto di una variabile (attribut
 Si inserisce con la doppia parentesi graffa ```{{ nome-della-variabile }}```.  
 
 Questa modifica è stata fatta da github
+Alcune modifiche...
