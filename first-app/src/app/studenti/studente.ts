@@ -50,4 +50,7 @@ export class Studente {
         this.nome = nome;
     }    
 
+    get isIdPari() {
+        return this.id % 2 == 0;
+    }
 }

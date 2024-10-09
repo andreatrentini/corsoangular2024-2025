@@ -5,4 +5,5 @@ table {
     width: 75%;
     margin: auto;
     margin-top: 5rem;
+    border-collapse: collapse;
 }

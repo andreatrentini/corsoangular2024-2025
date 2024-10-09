@@ -10,6 +10,13 @@
          I parametri saranno di tipo HTMLInputElement. -->
     <button (click)="aggiungi(id, nome, cognome, classe)">Aggiungi</button>
 </div>
+<hr>
+<div>
+    <button (click)="tutti()">Tutti</button>
+    <button (click)="pari()">Pari</button>
+    <button (click)="dispari()">Dispari</button>
+</div>
+<hr>
 <div>
     <table>
         <tr>
@@ -19,6 +26,49 @@
             <th>Classe</th>
         </tr>
         <!-- Aggiungere gli studenti presenti nell'array studenti -->
+         @for(studente of studenti; track studente.Id) {
+            @switch(visualizzazione) {
+                @case(tipoVisualizzazione.tutti) {
+                    <tr>
+                        <th>{{studente.Id}}</th>
+                        <td>{{studente.Nome}}</td>
+                        <td>{{studente.Cognome}}</td>
+                        <td>{{studente.Classe}}</td>
+                    </tr>
+                }
+                @case(tipoVisualizzazione.pari) {
+                    @if (studente.isIdPari) {
+                        <tr>
+                            <th>{{studente.Id}}</th>
+                            <td>{{studente.Nome}}</td>
+                            <td>{{studente.Cognome}}</td>
+                            <td>{{studente.Classe}}</td>
+                        </tr>
+                    }
+                }
+                @case(tipoVisualizzazione.dispari) {
+                    @if(!studente.isIdPari) {
+                        <tr>
+                            <th>{{studente.Id}}</th>
+                            <td>{{studente.Nome}}</td>
+                            <td>{{studente.Cognome}}</td>
+                            <td>{{studente.Classe}}</td>
+                        </tr>
+                    }
+                }
+                @default {
+                    <tr>
+                        <th>{{studente.Id}}</th>
+                        <td>{{studente.Nome}}</td>
+                        <td>{{studente.Cognome}}</td>
+                        <td>{{studente.Classe}}</td>
+                    </tr>
+                }
+            }
+         }
+         @empty {
+            <tr><td colspan="4">Non sono presnti studenti.</td></tr>
+         }
 
     </table>
 </div>

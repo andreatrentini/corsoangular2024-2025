@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Studente } from './studente';
 
+enum Visualizzazione {
+  tutti,
+  pari,
+  dispari
+}
+
 @Component({
   selector: 'app-studenti',
   standalone: true,
@@ -12,6 +18,12 @@ export class StudentiComponent {
 
   // Dichiaro un'array di oggetti di tipo Stuente e lo inizializzo ad array vuoto
   studenti: Studente[] = [];
+  // Dichiaro una variabile per definire il tipo di visualizzazione
+  visualizzazione: Visualizzazione = Visualizzazione.tutti;
+
+  // Per usare un enumerativo nel template HTML dichiaro un attributo
+  // nella classe che prende come valore l'enumerativo stesso
+  tipoVisualizzazione = Visualizzazione;
 
   // Il metodo aggiungi viene invocato quando si preme il pulsante Aggiungi
   // I parametri sono di tipo HTMLInputElement, ovvero sono un oggetto che rappresentra la input inserita
@@ -40,5 +52,15 @@ export class StudentiComponent {
 
     // Visualizzo nella console l'elenco degli studenti
     console.log(this.studenti);
+  }
+
+  tutti():void {
+    this.visualizzazione = Visualizzazione.tutti;
+  }
+  pari():void {
+    this.visualizzazione = Visualizzazione.pari;
+  }
+  dispari():void {
+    this.visualizzazione = Visualizzazione.dispari;
   }
 }

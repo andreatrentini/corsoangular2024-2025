@@ -1,0 +1,25 @@
+<h2>Signals</h2>
+
+Se uso dei signals non posso usare string interpolation oppure
+altri tipi di binding, specificando il solo nome del signal.
+Un attributo di tipo signal è una funzione.
+<p>{{counter}}</p>
+
+Il valore incorporato nel signal può essere ottenuto invocando
+la funzione: nomedelsignal();
+<p>Counter: {{counter()}}</p>
+<p>Doppio counter: {{doppioContatore()}}</p>
+<p><button (click)="azzera()">Azzera</button>
+<button (click)="incrementa()">Incrementa</button>
+</p>
+<p>Gestione array con signals</p>
+<div>
+    <p>Nuovo colore: <input #colore type="text">
+        <button (click)="aggiungiColore(colore.value)">Aggiungi</button>
+        <button (click)="azzeraColori()">Azzera</button></p>
+    <ul>
+        @for(colore of colori(); track colore) {
+            <li>{{colore}}</li>
+        }
+    </ul>
+</div>
