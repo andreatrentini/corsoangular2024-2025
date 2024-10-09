@@ -18,8 +18,23 @@ la funzione: nomedelsignal();
         <button (click)="aggiungiColore(colore.value)">Aggiungi</button>
         <button (click)="azzeraColori()">Azzera</button></p>
     <ul>
-        @for(colore of colori(); track colore) {
-            <li>{{colore}}</li>
+        <!--  La direttiva @for ci mette a disposizione una serie di variabili:
+          $index: number -> indice dell'elemento corrente
+          $count: number -> numetro di elementi presenti nell'array
+          $first: boolean -> vero se il valore di colore è il primo dell'array
+          $last: boolean -> vero se il valore di colore è l'ultimo dell'array
+          $even: boolean -> vero se l'indice è pari
+          $odd: boolean -> vero se l'indice è dispari
+           -->
+        @for(colore of colori(); track $index) {
+            <li>{{$index}} di {{$count}} - {{colore}} 
+                first: {{$first}}, last: {{$last}}
+                even: {{$even}}, odd: {{$odd}}
+            </li>
+        }
+        @empty {
+            <!-- Decidere che cosa scrivere nel DOM se l'array è vuoto -->
+            <li>Non sono presenti colori.</li>
         }
     </ul>
 </div>

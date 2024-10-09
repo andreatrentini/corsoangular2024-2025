@@ -1,4 +1,4 @@
-import { Component, computed, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-signals',
@@ -24,6 +24,13 @@ export class SignalsComponent {
   // definire questi signal come WritableSignal
 
   doppioContatore: Signal<number> = computed(() => this.counter() * 2);
+
+  constructor() {
+    effect(() => {
+      console.log(`Il valore di counter è: ${this.counter()}`);
+      console.log(`Il valore di colori è: ${this.colori()}`);
+    })
+  }
 
   azzera(): void {
     // Occorre riportare a 0 counter
