@@ -1,0 +1,10 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid gray;
+    background-color: silver;
+}
+
+.div-input {
+    margin: 10px;
+}

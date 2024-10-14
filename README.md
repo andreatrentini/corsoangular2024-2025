@@ -15,16 +15,25 @@
 Controllare che node e npm siano installati nel computer.  
 In caso contrario scaricare dalla rete i programmi di installazione e eseguirli sul proprio computer.  
 Per contralle se sono installati e la versione:  
-``` node -v```  
-``` npm -v```  
+```bash
+node -v
+```
+  
+```bash
+npm -v
+```  
 
 ## Installare Angular
 Per installare angular si usa Node Packe Manager (npm):  
-``` npm install -g @angular/cli```  
+```bash
+npm install -g @angular/cli
+```  
 
 ## Creare la prima app
 Per creare un'applicazione angular:
-``` ng new first-app```
+```bash
+ng new first-app
+```
 
 > NB: i nomi composti vanno separati da trattino. Non usare camel case. Questo NON vale per i nomi delle variabili o degli oggetti.
 
@@ -50,7 +59,9 @@ HTML, CSS e Typescript
 Typescript è un superset del linguaggio javascript
 
 ## Eseguire un'applicazione angular
-```ng serve```
+```bash
+ng serve
+```
 
 ## Elementi di un'applicazione angular
 1. Componenti: un componente è un parte della pagina web che contiene l'applicazione: intestazione, menu, una tabella, un input, una form  
@@ -69,7 +80,11 @@ Sono definiti da una classe: ```export class AppComponent...``` e da un decorato
 - templateUrl: percorso e nome del file che contiene il codice HTML del componente
 - styleUrl: percorso e nome del file CSS
 
-Per creare un nuovo componente il comando da usare è: ```ng generate component nome-del-componente``` (attenzione ai trattini!)  
+Per creare un nuovo componente il comando da usare è: 
+```bash
+ng generate component nome-del-componente
+``` 
+(attenzione ai trattini!)  
 
 ## Lavorare con i componenti
 
