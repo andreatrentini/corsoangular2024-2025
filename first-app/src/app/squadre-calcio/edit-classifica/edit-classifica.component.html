@@ -1,0 +1,24 @@
+<h1>Edit Classifica</h1>
+<div>
+    <table>
+        <thead>
+            <tr>                
+                <th>Squadra</th>
+                <th>Operazione</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(squadra of campionato(); track squadra.nome) {
+                <tr>                    
+                    <td>{{squadra.nome}}</td>
+                    <td>
+                        <button (click)="aggiungiVittoria($index)">Aggiungi vittoria</button>
+                        <button (click)="aggiungiPareggio($index)">Aggiungi pareggio</button>
+                        <button (click)="aggiungiSconfitta($index)">Aggiungi sconfitta</button>
+                    </td>                                 
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
