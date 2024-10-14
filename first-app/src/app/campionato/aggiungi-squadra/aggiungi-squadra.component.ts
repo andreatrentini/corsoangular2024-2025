@@ -12,4 +12,8 @@ export class AggiungiSquadraComponent {
   // model è una funzione wrapper, cioè un signal che crea un collegamento
   // two-way con i dati di un componente parent
   squadreCampionato = model.required<Squadra[]>();
+
+  aggiungi(squadra: string) {
+    this.squadreCampionato.update(squadre => [...squadre, new Squadra(squadra)]);
+  }
 }

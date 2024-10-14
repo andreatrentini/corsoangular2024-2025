@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, effect, signal, WritableSignal } from '@angular/core';
 import { Squadra } from './squadra';
 import { AggiungiSquadraComponent } from './aggiungi-squadra/aggiungi-squadra.component';
 import { ClassificaComponent } from './classifica/classifica.component';
@@ -12,4 +12,14 @@ import { ClassificaComponent } from './classifica/classifica.component';
 })
 export class CampionatoComponent {
   squadre: WritableSignal<Squadra[]> = signal<Squadra[]>([]);
+
+  azzera(): void {
+    this.squadre.set([]);
+  }
+
+  constructor() {
+    effect(() => {
+      console.log(this.squadre());
+    })
+  }
 }

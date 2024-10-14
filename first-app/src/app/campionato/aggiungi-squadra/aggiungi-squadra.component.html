@@ -1,1 +1,16 @@
-<p>aggiungi-squadra works!</p>
+<div class="flex-container">
+<div>
+    <p>
+        <input type="text" placeholder="nome della squadra..." #squadra>
+        <button (click)="aggiungi(squadra.value)">Aggiungi</button>
+    </p>
+    </div>
+<div>
+    <p>Squadre</p>
+    <ul>
+        @for(squadra of squadreCampionato(); track squadra.nome) {
+            <li>{{squadra.nome}}</li>
+        }
+    </ul>
+</div>
+</div>
