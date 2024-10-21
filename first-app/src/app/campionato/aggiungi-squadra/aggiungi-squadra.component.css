@@ -4,3 +4,9 @@
     justify-content: space-around;
     align-items: flex-start;
 }
+
+.flex-element {
+    width: 40%;
+    background-color: silver;
+    padding: 1rem;
+}

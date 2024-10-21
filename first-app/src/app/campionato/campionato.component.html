@@ -3,4 +3,30 @@
 <hr>
 <app-aggiungi-squadra [(squadreCampionato)]="squadre"></app-aggiungi-squadra>
 <hr>
-<app-classifica></app-classifica>
+<h2>Elenco squadre campionato</h2>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Posizione</th>
+                <th>Nome</th>
+                <th>Operazione</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(squadra of squadre(); track squadra.nome) {
+                <tr>
+                    <th>{{$index + 1}}</th>
+                    <td>{{squadra.nome}}</td>
+                    <td>
+                        <button (click)="vittoria($index)">Vittoria</button>
+                        <button (click)="pareggio($index)">Pareggio</button>
+                        <button (click)="sconfitta($index)">Sconfitta</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<hr>
+<app-classifica [squadreClassifica]="squadre()"></app-classifica>

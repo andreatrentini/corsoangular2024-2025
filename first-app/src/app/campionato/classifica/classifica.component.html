@@ -1,1 +1,29 @@
-<p>classifica works!</p>
+<h2>Classifica</h2>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Posizione</th>
+                <th>Nome</th>
+                <th>Vittorie</th>
+                <th>Pareggi</th>
+                <th>Sconfitte</th>
+                <th>Giocate</th>
+                <th>Punti</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(squadra of squadreClassifica(); track squadra.nome) {
+                <tr>
+                    <th>{{$index + 1}}</th>
+                    <td>{{squadra.nome}}</td>
+                    <td>{{squadra.vittorie}}</td>
+                    <td>{{squadra.pareggi}}</td>
+                    <td>{{squadra.sconfitte}}</td>
+                    <td>{{squadra.giocate}}</td>
+                    <td>{{squadra.punti}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
