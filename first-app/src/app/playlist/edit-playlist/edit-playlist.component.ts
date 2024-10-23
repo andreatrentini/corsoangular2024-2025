@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PlaylistService } from '../playlist.service';
+import { Playlist } from '../playlist';
 
 @Component({
   selector: 'app-edit-playlist',
@@ -8,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrl: './edit-playlist.component.css'
 })
 export class EditPlaylistComponent {
-
+  altraIstanzaPlaylistService: PlaylistService = new PlaylistService();
+  
+  addPlayList() {
+    this.altraIstanzaPlaylistService.addPlaylist(new Playlist(1, 'PL2'));
+  }
 }
