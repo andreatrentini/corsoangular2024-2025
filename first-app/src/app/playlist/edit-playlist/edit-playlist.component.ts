@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { PlaylistService } from '../playlist.service';
 import { Playlist } from '../playlist';
+import { AddSongComponent } from '../add-song/add-song.component';
 
 @Component({
   selector: 'app-edit-playlist',
   standalone: true,
-  imports: [],
+  imports: [AddSongComponent],
   templateUrl: './edit-playlist.component.html',
   styleUrl: './edit-playlist.component.css'
 })
 export class EditPlaylistComponent {
-  altraIstanzaPlaylistService: PlaylistService = new PlaylistService();
-  
-  addPlayList() {
-    this.altraIstanzaPlaylistService.addPlaylist(new Playlist(1, 'PL2'));
+  playlist: Signal<Playlist[]>;
+
+  constructor(private playListService: PlaylistService) {
+    this.playlist = this.playListService.playlistRO;
   }
+
+
+  
 }

@@ -6,10 +6,10 @@ export class Playlist {
     private _description: string;
     private _songs: Song[];
 
-    constructor(id: number, name: string) {
+    constructor(id: number, name: string, description: string) {
         this._id = id;
         this._name = name;
-        this._description = '';
+        this._description = description;
         this._songs = [];
     }
 

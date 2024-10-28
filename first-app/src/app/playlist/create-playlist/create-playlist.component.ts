@@ -1,4 +1,4 @@
-import { Component, WritableSignal } from '@angular/core';
+import { Component, Signal, WritableSignal } from '@angular/core';
 import { Playlist } from '../playlist';
 import { PlaylistService } from '../playlist.service';
 
@@ -11,7 +11,7 @@ import { PlaylistService } from '../playlist.service';
 })
 export class CreatePlaylistComponent {
   
-  playlist: WritableSignal<Playlist[]>;
+  playlist: Signal<Playlist[]>;
 
   // il punto esclamativo mi consente di dichiarare una variabile senza assegnarne il valore.
   // in altre parola può assumere il valore null.
@@ -24,11 +24,11 @@ export class CreatePlaylistComponent {
   // all'avvio dell'applicazione
   // Ricorda: providedIn: 'root'
   constructor(private playlistService: PlaylistService) {    
-    this.playlist = this.playlistService.playlist;
+    this.playlist = this.playlistService.playlistRO;
   }
   
   createPlaylist(id: HTMLInputElement, name: HTMLInputElement, description: HTMLInputElement): void {
-    let newPlaylist: Playlist = new Playlist(parseInt(id.value), name.value);
+    let newPlaylist: Playlist = new Playlist(parseInt(id.value), name.value, description.value);
     this.playlistService.addPlaylist(newPlaylist);
     console.log(this.playlist());
   }

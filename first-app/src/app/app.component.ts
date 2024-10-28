@@ -6,12 +6,13 @@ import { StruttureComponent } from './strutture/strutture.component';
 import { StudentiComponent } from './studenti/studenti.component';
 import { SignalsComponent } from './signals/signals.component';
 import { CampionatoComponent } from './campionato/campionato.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, PrimoComponenteComponent, SliderComponent, StruttureComponent, StudentiComponent,
-    SignalsComponent, CampionatoComponent
+    SignalsComponent, CampionatoComponent, PlaylistComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

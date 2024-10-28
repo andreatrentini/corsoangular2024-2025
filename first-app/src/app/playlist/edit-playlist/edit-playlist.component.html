@@ -1,1 +1,25 @@
-<p>edit-playlist works!</p>
+<h2>Elenco playlist</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @for(pl of playlist(); track pl.id) {
+            <tr>
+                <th>{{pl.id}}</th>
+                <td>{{pl.name}}</td>
+                <td>{{pl.description}}</td>               
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;">
+                    <div><b>Songs</b></div>
+                    <div><app-add-song></app-add-song></div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

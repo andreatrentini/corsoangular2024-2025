@@ -15,7 +15,8 @@ export class PlaylistService {
   // playlist, un writable signal che gestisce un array di playlist, potrà essere usato
   // in tutti i componenti che ne hanno bisogno. In questo modo ho la possibilità di condividere
   // lo stesso array di playlist in qualsiasi componente lo richieda.
-  playlist: WritableSignal<Playlist[]> = signal<Playlist[]>([]);
+  private playlist: WritableSignal<Playlist[]> = signal<Playlist[]>([]);
+  public playlistRO = this.playlist.asReadonly();
 
   addPlaylist(playlist: Playlist): void {
     this.playlist.update(currentPlaylists => [...currentPlaylists, playlist]);
