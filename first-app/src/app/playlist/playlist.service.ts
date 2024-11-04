@@ -25,8 +25,16 @@ export class PlaylistService {
   removePlaylist(index: number): void {
     this.playlist.update(currentPlaylists => {
       let tmp = currentPlaylists;
-      tmp.splice(index, 1);
+      tmp.splice(index, 1);      
       return [...tmp];
+    })
+  }
+
+  editPlayList(index: number, name: string, description: string) {
+    this.playlist.update(current => {
+      current[index].name = name;
+      current[index].description = description;
+      return [...current];
     })
   }
 
@@ -40,6 +48,14 @@ export class PlaylistService {
       return [...currentPlaylists];
     })
   }
+
+  removeSong(indexPlaylist: number, indexSong: number): void {
+    this.playlist.update(current => {
+      current[indexPlaylist].songs.splice(indexSong, 1);
+      return [...current];
+    })
+  }
+
 
   constructor() { }
 }

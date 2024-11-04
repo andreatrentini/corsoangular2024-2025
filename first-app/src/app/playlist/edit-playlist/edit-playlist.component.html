@@ -4,20 +4,45 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Description</th>            
+            <th>Description</th>
+            <th></th>            
         </tr>
     </thead>
     <tbody>
         @for(pl of playlist(); track pl.id) {
+            @if($index == indexEditPlaylist()) {
+                <!-- Visualizzo la riga della tabella per l'edit  -->
+                <tr>
+                    <th>{{pl.id}}</th>
+                    <td><input #name [value]="pl.name"></td>
+                    <td><input #description [value]="pl.description"></td>  
+                    <!-- La cella seguente è necessaria per aggiungere alcuni pulsanti per rimuovere/modificare
+                    La playlist corrente -->
+                    <td>
+                        <button (click)="save($index, name.value, description.value)">Salva</button>
+                        <button (click)="undo()">Annulla</button>
+                    </td>             
+                </tr>
+            }
+            @else {
+                <!-- Visualizzo la riga della tabella in lettura -->
+                <tr>
+                    <th>{{pl.id}}</th>
+                    <td>{{pl.name}}</td>
+                    <td>{{pl.description}}</td>  
+                    <!-- La cella seguente è necessaria per aggiungere alcuni pulsanti per rimuovere/modificare
+                    La playlist corrente -->
+                    <td>
+                        <button (click)="removePlaylist($index)">Elimina</button>
+                        <button (click)="editPlaylist($index)">Modifica</button>
+                    </td>             
+                </tr>
+            }
             <tr>
-                <th>{{pl.id}}</th>
-                <td>{{pl.name}}</td>
-                <td>{{pl.description}}</td>               
-            </tr>
-            <tr>
-                <td colspan="3" style="text-align: center;">
+                <td colspan="4" style="text-align: center;">
                     <div><b>Songs</b></div>
-                    <div><app-add-song></app-add-song></div>
+                    <div><app-add-song [indexPlaylist]="$index"></app-add-song></div>
+                    <div><app-song-list [songs]="pl.songs" [indexPlaylist]="$index"></app-song-list></div>
                 </td>
             </tr>
         }

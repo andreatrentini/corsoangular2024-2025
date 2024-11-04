@@ -6,13 +6,13 @@ export class Song {
     private _duration: number;    
     private _rating: number;
 
-    constructor(id: number, title: string) {
+    constructor(id: number, title: string, artist: string, genre: string, duration: number, rating: number) {
         this._id = id;
         this._title = title;
-        this._artist = '';
-        this._genre = '';
-        this._duration = 0;
-        this._rating = 0;
+        this._artist = artist;
+        this._genre = genre;
+        this._duration = duration;
+        this._rating = rating;
     }
 
     get id(): number {
