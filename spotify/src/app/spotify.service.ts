@@ -2,15 +2,16 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Token } from './token';
 import { IToken } from './i-token';
-import { interval } from 'rxjs';
+import { interval, Observable } from 'rxjs';
+import { Search } from './i-spotify';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
-  clientId: string = 'f42febd685e745bb85c7840670a6c473';
-  clientSecret: string = 'f0fec519d863407490f0dc92e240f0c0';
+  private clientId: string = 'f42febd685e745bb85c7840670a6c473';
+  private clientSecret: string = 'f0fec519d863407490f0dc92e240f0c0';
 
   // Dependency injection della classe HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -48,11 +49,13 @@ export class SpotifyService {
       .subscribe(dati => {
         // Memorizzo in this.token una nuova istanza della classe Token con i dati ricevuti da Soptify
         this.token = new Token(dati);
+        console.log(this.token);
         // Avviso con signal che il token è arrivato
         this._tokenValid.set(true);
         // interval fa parte della libreria rxjs, ed è un observable. (il parametro fra parentesi corrisponde al tempo
         // in millesecondi di attesa prima che venga eseguita la funzione anonima specificata con subscribe).
         interval(this.token.expireIn).subscribe(() => {
+          this._tokenValid.set(false);
           this.httpClient.post<IToken>(this.URLaccount, body.toString(), { headers: headers })
             .subscribe(dati => {
               this.token = new Token(dati);
@@ -60,6 +63,19 @@ export class SpotifyService {
             })
         })
       })
+  }
+
+  // La funzione searchArtist restituisce un Observable, oggetto introdotto dalla libreria rxjs.
+  // Il funzionamento è simile alle Promises, ma a differenza di quest'ultime, la funzione da eseguire
+  // nel caso di obervable fullfilled va passata attraverso il metodo subscribe (vedi sopra)
+  // Il service, quindi non richiede i dati, ma espone il metodo searchArtist in modo che sia poi il componente
+  // a richiederli effettivamente attraverso un subscribe del metodo searchArtist.
+  searchArtist(artistName: string): Observable<Search> {
+    let url = this.URLbase + '/search?q=' + artistName + '&type=artist';
+    let httpHeaders = new HttpHeaders()
+                            .set('Authorization', this.token.bearer);
+
+    return this.httpClient.get<Search>(url, {headers: httpHeaders});
   }
 
 }

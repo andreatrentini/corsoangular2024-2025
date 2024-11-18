@@ -2,3 +2,7 @@ POST https://accounts.spotify.com/api/token
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials&client_id=f42febd685e745bb85c7840670a6c473&client_secret=f0fec519d863407490f0dc92e240f0c0
+
+###
+GET https://api.spotify.com/v1/search?q=rho&type=artist
+Authorization: Bearer BQA5q67a2IyaiE4tIEoXh8kNB7wEGbTkFA_YOwGDajBzlfPs3GS87hFSVT_y97JkkLsgQkSIMzEsZOG8n08qCM4XHHZyVcF6eNon_9mLZdiITmYuR90
