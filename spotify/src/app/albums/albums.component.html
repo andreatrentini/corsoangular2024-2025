@@ -1,0 +1,12 @@
+<div class="row">
+    @for(album of albums()?.items; track $index) {
+        <div class="col-xl-3 col-sm-6">
+            <app-album [album]="album"></app-album>
+        </div>
+    }
+    @empty {
+        <div class="alert alert-light" role="alert">
+            Nessun album presente...
+        </div>
+    }
+</div>

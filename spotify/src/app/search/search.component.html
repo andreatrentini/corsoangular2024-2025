@@ -13,7 +13,7 @@
              NB: notare il ? dopo il nome dell'attributo del quale si vuole controllare l'esistenza
              -->
             @for(artist of artistList()?.artists?.items; track $index) {
-                <a href="#" class="list-group-item list-group-item-action">{{artist.name}}</a>       
+                <a [routerLink]="['/albums', artist.id]" class="list-group-item list-group-item-action">{{artist.name}}</a>       
             }
         </div>
     </div>

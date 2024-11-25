@@ -3,7 +3,8 @@ import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Token } from './token';
 import { IToken } from './i-token';
 import { interval, Observable } from 'rxjs';
-import { Search } from './i-spotify';
+import { Search } from './i-search';
+import { Albums } from './i-albums';
 
 @Injectable({
   providedIn: 'root'
@@ -76,6 +77,14 @@ export class SpotifyService {
                             .set('Authorization', this.token.bearer);
 
     return this.httpClient.get<Search>(url, {headers: httpHeaders});
+  }
+
+  getArtistAlbums(id: string): Observable<Albums> {
+    let url = this.URLbase + '/artists/' + id + '/albums';
+    let httpHeaders = new HttpHeaders()
+                            .set('Authorization', this.token.bearer);
+
+    return this.httpClient.get<Albums>(url, {headers: httpHeaders});
   }
 
 }

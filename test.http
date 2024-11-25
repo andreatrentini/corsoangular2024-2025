@@ -5,4 +5,12 @@ grant_type=client_credentials&client_id=f42febd685e745bb85c7840670a6c473&client_
 
 ###
 GET https://api.spotify.com/v1/search?q=rho&type=artist
-Authorization: Bearer BQA5q67a2IyaiE4tIEoXh8kNB7wEGbTkFA_YOwGDajBzlfPs3GS87hFSVT_y97JkkLsgQkSIMzEsZOG8n08qCM4XHHZyVcF6eNon_9mLZdiITmYuR90
+Authorization: Bearer BQCj2X3rGLzaRSWcBgz5aylsxodR4bXyal2x4MSOHWNvheKvxX8EJ8nW-WBkpXu2iEoA2BZk-IUxPVM9oMjrPn6Sn8jtRWI1v_nZPzpbXc-0TAD-PqU
+
+###
+GET https://api.spotify.com/v1/artists/6tLMZjo5mp3G1FmrARUaVT/albums
+Authorization: Bearer BQCj2X3rGLzaRSWcBgz5aylsxodR4bXyal2x4MSOHWNvheKvxX8EJ8nW-WBkpXu2iEoA2BZk-IUxPVM9oMjrPn6Sn8jtRWI1v_nZPzpbXc-0TAD-PqU
+
+###
+GET https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/albums
+Authorization: Bearer BQD4YK9zYYUbIxUsucqG1jX4vzbqsO66DusKk22_C3U6el2Kmhfb_dZynaIl73uNJMkZs_OEbRDsqBdPuY_noLOY9FO4PkVko-GpSNKyLIO7BEU8PoM

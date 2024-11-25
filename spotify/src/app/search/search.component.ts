@@ -2,12 +2,13 @@ import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core
 import { SpotifyService } from '../spotify.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
-import { Search } from '../i-spotify';
+import { Search } from '../i-search';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
@@ -20,6 +21,9 @@ export class SearchComponent implements OnInit {
   searchInput: FormControl = new FormControl();
 
   // Signal che gestisce i dati ricevuti da spotify
+  // <Search | null> significa che il mio signal accetta come valore un oggeto di tipo Search oppure un valore null
+  // Prima di effettuare la ricerca, e quindi inviare ka richiesta a spotify, l'elenco degli artisti
+  // è necessariamente nullo, 
   artistList: WritableSignal<Search | null> = signal<Search | null>(null)
 
   ngOnInit(): void {
