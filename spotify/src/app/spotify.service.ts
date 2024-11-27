@@ -11,8 +11,8 @@ import { Albums } from './i-albums';
 })
 export class SpotifyService {
 
-  private clientId: string = 'f42febd685e745bb85c7840670a6c473';
-  private clientSecret: string = 'f0fec519d863407490f0dc92e240f0c0';
+  private clientId: string = 'fd268e66ef254b04a0b918892d556d1e';
+  private clientSecret: string = '0137008dd6a54daba1d2aaf795445ecc';
 
   // Dependency injection della classe HttpClient
   constructor(private httpClient: HttpClient) { }

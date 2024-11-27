@@ -1,0 +1,7 @@
+#sfondo {
+    background-image: url('/sfondo.webp');
+    background-position: center top; /* Centra l'immagine orizzontalmente e allineala in alto verticalmente */
+    background-repeat: no-repeat; /* Non ripetere l'immagine */
+    background-size: 100% auto;
+    min-height: 70vh;
+}

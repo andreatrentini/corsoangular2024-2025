@@ -1,11 +1,11 @@
-<div class="container mt-5">
+<div class="container my-3">
     <label for="artistName" class="form-label">Artist name</label>
     <!-- [formControl] mni consente di creare un collegamento (property binding) fra il tag input
      e l'oogetto di tipo FormControl dichiarato nella classe in typescript -->
     <input type="text" id="artistName" class="form-control" placeholder="artist name..." [formControl]="searchInput">
 </div>
 @if(artistList()) {
-    <div class="container mt-3">
+    <div class="container my-3">
         <div class="list-group">
             <!-- Siccome artistList() potrebbe essere null (ho cancellato la richiesta a Spotify perché il testo
              è vuoto), quando eseguo il ciclo for devo controllare che esista l'oggetto di tipo Search (artistList()?)
