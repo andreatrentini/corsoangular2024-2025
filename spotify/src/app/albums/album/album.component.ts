@@ -1,4 +1,4 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { Component, computed, effect, input, InputSignal, Signal } from '@angular/core';
 import { Item } from '../../i-albums';
 
 @Component({
@@ -9,5 +9,5 @@ import { Item } from '../../i-albums';
   styleUrl: './album.component.css'
 })
 export class AlbumComponent {
-  album: InputSignal<Item | null> = input.required<Item | null>();
+  album: InputSignal<Item> = input.required<Item>();
 }

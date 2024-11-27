@@ -29,6 +29,7 @@ export class AlbumsComponent implements OnInit {
       let id: string = params['id'];
       this.spotifyService.getArtistAlbums(id).subscribe(dati => {
         this.albums.set(dati);
+        
       })
     })
   }
