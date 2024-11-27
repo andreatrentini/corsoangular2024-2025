@@ -1,7 +1,13 @@
 #sfondo {
     background-image: url('/sfondo.webp');
-    background-position: center top; /* Centra l'immagine orizzontalmente e allineala in alto verticalmente */
-    background-repeat: no-repeat; /* Non ripetere l'immagine */
+    background-position: center top;
+    background-repeat: no-repeat;   
     background-size: 100% auto;
-    min-height: 70vh;
+    min-height: calc(0.55 * 100vw);
+}
+
+@media (min-width: 1320px) {
+    #sfondo {
+        min-height: 70vh;
+    }
 }
