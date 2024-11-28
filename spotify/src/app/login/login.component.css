@@ -1,0 +1,12 @@
+.login-form {
+    min-width: 600px; /* Imposta una larghezza fissa per il form di login */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Opzionale: aggiunge ombra per un effetto elevato */
+    background-color: white; /* Opzionale: sfondo bianco per il form di login */
+}
+
+@media (min-width: 992px) {
+    #main {
+        min-height: 70vh;
+    }
+}

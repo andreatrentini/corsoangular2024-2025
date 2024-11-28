@@ -11,7 +11,7 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="" routerLinkActive="active">Home</a>
           </li>
-          @if(validToken()) {
+          @if(validToken() && loginEffettuato()) {
             <li class="nav-item">
               <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
             </li>        
@@ -20,9 +20,14 @@
             <a class="nav-link" routerLink="/credits" routerLinkActive="active">Credits</a>
           </li>                
         </ul>
-        <form class="d-flex" role="search">        
-          <a class="btn btn-outline-success" routerLink="/login" routerLinkActive="active">Login</a>
-        </form>
+        <form class="d-flex">    
+          @if(loginEffettuato()) {
+            <a class="btn btn-outline-danger" (click)="logout()">Logout</a>
+          }    
+          @else {
+            <a class="btn btn-outline-success" routerLink="/login" routerLinkActive="active">Login</a>
+          }
+        </form>       
       </div>
     </div>
   </nav>

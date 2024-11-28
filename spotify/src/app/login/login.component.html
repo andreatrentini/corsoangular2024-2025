@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div id="main" class="d-flex align-items-center justify-content-center">
+    <div class="login-form">
+        <!-- I tuoi campi di input e pulsanti di login vanno qui -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <label for="username" class="form-label">User name</label>
+            <input type="text" class="form-control" [class.is-valid]="loginForm.controls['username'].valid" 
+            [class.is-invalid]="!loginForm.controls['username'].valid && loginForm.controls['username'].touched" id="username" required formControlName="username">
+            @if(!loginForm.controls['username'].valid && loginForm.controls['username'].touched) {
+                <div class="invalid-feedback">
+                    Username non può essere vuoto.
+                </div>
+            }
+            <label for="password" class="form-label mt-2">Password</label>
+            <input type="password" class="form-control" [class.is-valid]="loginForm.controls['password'].valid" 
+            [class.is-invalid]="!loginForm.controls['password'].valid && loginForm.controls['password'].touched"
+            id="password" required formControlName="password">
+            @if(!loginForm.controls['password'].valid && loginForm.controls['password'].touched) {
+                <div class="invalid-feedback">
+                    La password non può essere vuota.
+                </div>
+            }
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+            </div>
+        </form>
+        @if(usernamePasswordErrati()) {
+            <div class="alert alert-danger mt-5" role="alert">
+                Username o password errati.
+            </div>
+        }
+    </div>
+</div>

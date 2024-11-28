@@ -1,6 +1,7 @@
-import { Component, Signal } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SpotifyService } from '../spotify.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,9 +11,15 @@ import { SpotifyService } from '../spotify.service';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  validToken: Signal<boolean>;
 
-  constructor(private spotifyService: SpotifyService) {
-    this.validToken = this.spotifyService.tokenValid;
+  private spotifyService: SpotifyService = inject(SpotifyService);
+  private loginService: LoginService = inject(LoginService);
+
+  validToken: Signal<boolean> = this.spotifyService.tokenValid;
+  loginEffettuato: Signal<boolean> = this.loginService.loginEffettuato;
+
+  logout() {
+    this.loginService.logout();
   }
+
 }
