@@ -1,0 +1,12 @@
+.login-form {
+    min-width: 600px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+@media (min-width: 992px) {
+    #main {
+        min-height: 70vh;
+    }
+}

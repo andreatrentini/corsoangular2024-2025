@@ -17,4 +17,8 @@ export class LoginComponent {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
+
+  login(): void {
+    console.log('ok');
+  }
 }

@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div id="main" class="d-flex align-items-center justify-content-center">
+    <div class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <label for="username" class="form-label">Nome utente</label>
+            <input type="text" class="form-control" 
+            [class.is-valid]="loginForm.controls['username'].valid"
+            [class.is-invalid]="!loginForm.controls['username'].valid && loginForm.controls['username'].touched"
+            formControlName="username">
+            @if(!loginForm.controls['username'].valid && loginForm.controls['username'].touched) {
+                <div class="invalid-feedback">
+                    Username non può essere vuoto.
+                </div>
+            }
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" 
+            [class.is-valid]="loginForm.controls['password'].valid"
+            [class.is-invalid]="!loginForm.controls['password'].valid && loginForm.controls['password'].touched"
+            formControlName="password">
+            @if(!loginForm.controls['password'].valid && loginForm.controls['password'].touched) {
+                <div class="invalid-feedback">
+                    Password non può essere vuota.
+                </div>
+            }
+            <div class="mt-3">
+                <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+            </div>
+        </form>       
+    </div>
+</div>
