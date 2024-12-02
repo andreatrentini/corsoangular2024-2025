@@ -10,6 +10,6 @@
         <p class="card-text">
             Numero di tracce: {{album().total_tracks}}<br>
         Anno: {{album().release_date.substring(0, 4)}}</p>
-        <a href="#" class="btn btn-primary">Tracce</a>
+        <a class="btn btn-primary" [routerLink]="['/album-detail', album().id]">Tracce</a>
     </div>
 </div>

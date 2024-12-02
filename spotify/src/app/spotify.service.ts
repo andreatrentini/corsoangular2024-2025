@@ -5,6 +5,7 @@ import { IToken } from './i-token';
 import { interval, Observable } from 'rxjs';
 import { Search } from './i-search';
 import { Albums } from './i-albums';
+import { Album } from './i-album';
 
 @Injectable({
   providedIn: 'root'
@@ -85,6 +86,14 @@ export class SpotifyService {
                             .set('Authorization', this.token.bearer);
 
     return this.httpClient.get<Albums>(url, {headers: httpHeaders});
+  }
+
+  getAlbum(id: string): Observable<Album> {
+    let url = this.URLbase + '/albums/' + id;
+    let httpHeaders = new HttpHeaders()
+                            .set('Authorization', this.token.bearer);
+
+    return this.httpClient.get<Album>(url, {headers: httpHeaders});
   }
 
 }

@@ -17,5 +17,6 @@ export const routes: Routes = [
     // :id rappresenta un parametro che nella URL potrà cambiare, e rappresentare di volta in volta l'id dell'artista
     // di cui si vuole ottenere l'elenco degli album
     {path: 'albums/:id', component: AlbumsComponent, canActivate: [loggedInGuard, accessTokenGuard]},
+    {path: 'album-detail/:id', component: AlbumsComponent, canActivate: [loggedInGuard, accessTokenGuard]},
     {path: '**', component: NotFoundComponent}
 ];
